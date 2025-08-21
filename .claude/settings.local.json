@@ -8,7 +8,8 @@
       "Bash(npx tsc:*)",
       "Bash(rm:*)",
       "Bash(grep:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(yarn run build)"
     ],
     "deny": [],
     "ask": []
