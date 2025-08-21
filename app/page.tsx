@@ -2,8 +2,9 @@
 
 import type React from "react"
 import { useState } from "react"
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
@@ -22,33 +23,24 @@ import {
   Zap,
 } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function HomePage() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [password, setPassword] = useState("")
-  const [username, setUsername] = useState("demo")
-  const [showLogin, setShowLogin] = useState(false)
+  const { data: session } = useSession()
+  const router = useRouter()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (username === "demo" && password === "1234") {
-      setIsAuthenticated(true)
-      setShowLogin(false)
-    } else {
-      alert("Incorrect credentials")
-    }
-  }
-
-  if (isAuthenticated) {
-    return <Dashboard />
+  // If user is authenticated, redirect to dashboard
+  if (session) {
+    router.push('/dashboard')
+    return null
   }
 
   return (
     <div className="min-h-screen bg-background">
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center h-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 sm:h-20 lg:h-24">
             <div className="flex items-center gap-4">
               <Image
                 src="/images/moms-2-go-logo.png"
@@ -57,7 +49,7 @@ export default function HomePage() {
                 height={64}
                 className="rounded-2xl shadow-lg"
               />
-              <span className="font-serif font-bold text-3xl text-primary tracking-tight">MOMS-2-GO</span>
+              <span className="font-serif font-bold text-xl sm:text-2xl lg:text-3xl text-primary tracking-tight">MOMS-2-GO</span>
             </div>
 
             <div className="hidden md:flex items-center gap-8">
@@ -75,13 +67,12 @@ export default function HomePage() {
                   Reviews
                 </a>
               </nav>
-              <Button
-                onClick={() => setShowLogin(true)}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl px-8 py-3 text-base font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                Access Dashboard
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+              <Link href="/auth/signin">
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl px-8 py-3 text-base font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                  Access Dashboard
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
             </div>
 
             <div className="md:hidden">
@@ -92,7 +83,7 @@ export default function HomePage() {
           </div>
 
           {mobileMenuOpen && (
-            <div className="md:hidden py-6 border-t border-border/50 animate-fade-in space-y-4">
+            <div className="md:hidden py-4 border-t border-border/50 animate-fade-in space-y-3 bg-background/95 backdrop-blur-sm">
               <nav className="flex flex-col gap-4">
                 <a href="#services" className="text-muted-foreground hover:text-primary transition-colors font-medium">
                   Services
@@ -107,28 +98,27 @@ export default function HomePage() {
                   Reviews
                 </a>
               </nav>
-              <Button
-                onClick={() => setShowLogin(true)}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl px-8 py-3 text-base font-medium"
-              >
-                Access Dashboard
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+              <Link href="/auth/signin">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl px-8 py-3 text-base font-medium">
+                  Access Dashboard
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
             </div>
           )}
         </div>
       </nav>
 
-      <section className="relative py-32 lg:py-48 overflow-hidden">
+      <section className="relative py-16 sm:py-24 lg:py-32 xl:py-48 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 relative">
-          <div className="text-center space-y-12 animate-fade-in">
-            <div className="space-y-8">
-              <Badge className="bg-primary/10 text-primary border-primary/20 rounded-full px-8 py-3 text-base font-medium shadow-lg">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center space-y-8 sm:space-y-10 lg:space-y-12 animate-fade-in">
+            <div className="space-y-6 sm:space-y-8">
+              <Badge className="bg-primary/10 text-primary border-primary/20 rounded-full px-4 sm:px-6 lg:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium shadow-lg">
                 ✨ Trusted by 10,000+ Mothers Nationwide
               </Badge>
 
-              <h1 className="font-serif font-bold text-5xl lg:text-7xl xl:text-8xl leading-[0.9] text-foreground tracking-tight">
+              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl leading-[0.9] text-foreground tracking-tight">
                 Safe Rides for
                 <br />
                 <span className="text-primary bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
@@ -136,30 +126,32 @@ export default function HomePage() {
                 </span>
               </h1>
 
-              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-4xl mx-auto font-light">
+              <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-muted-foreground leading-relaxed max-w-4xl mx-auto font-light px-4 sm:px-0">
                 Professional transportation with CPR-certified drivers, spacious vehicles, and emergency-ready
                 technology designed specifically for your precious journey to motherhood.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl px-12 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl"
-              >
-                Book Your Ride Now
-                <ArrowRight className="w-5 h-5 ml-3" />
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4 sm:px-0">
+              <Link href="/auth/signup" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl w-full"
+                >
+                  Book Your Ride Now
+                  <ArrowRight className="w-5 h-5 ml-3" />
+                </Button>
+              </Link>
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-2xl px-12 py-4 text-lg font-semibold border-2 hover:scale-105 transition-all duration-300 bg-transparent"
+                className="rounded-2xl px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-semibold border-2 hover:scale-105 transition-all duration-300 bg-transparent w-full sm:w-auto"
               >
                 Learn More
               </Button>
             </div>
 
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-12 pt-16">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 pt-12 sm:pt-16">
               <div className="flex items-center gap-4">
                 <div className="flex -space-x-3">
                   {[1, 2, 3, 4, 5].map((i) => (
@@ -181,7 +173,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-8 text-center">
+              <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 text-center flex-wrap justify-center">
                 <div>
                   <p className="text-2xl font-bold text-primary">24/7</p>
                   <p className="text-sm text-muted-foreground">Available</p>
@@ -200,18 +192,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="services" className="py-32 bg-muted/30">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="text-center space-y-6 mb-24 animate-slide-up">
-            <h2 className="font-serif font-bold text-4xl lg:text-6xl text-foreground tracking-tight">
+      <section id="services" className="py-16 sm:py-24 lg:py-32 bg-muted/30">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-4 sm:space-y-6 mb-16 sm:mb-20 lg:mb-24 animate-slide-up">
+            <h2 className="font-serif font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground tracking-tight">
               Our Specialized Services
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto font-light px-4 sm:px-0">
               Comprehensive transportation solutions designed for every stage of your maternal journey
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-12 mb-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 mb-12 sm:mb-16">
             {[
               {
                 icon: Heart,
@@ -239,7 +231,7 @@ export default function HomePage() {
                 className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 rounded-3xl bg-card hover:scale-105 animate-scale-in group"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <CardContent className="p-10 text-center">
+                <CardContent className="p-6 sm:p-8 lg:p-10 text-center">
                   <div className="w-24 h-24 bg-primary/10 rounded-3xl flex items-center justify-center mb-8 mx-auto group-hover:bg-primary/20 transition-colors">
                     <service.icon className="w-12 h-12 text-primary" />
                   </div>
@@ -260,7 +252,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {[
               { icon: Clock, title: "Average 5min", subtitle: "Response Time" },
               { icon: Users, title: "CPR Certified", subtitle: "All Drivers" },
@@ -280,18 +272,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="about" className="py-32">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section id="about" className="py-16 sm:py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <div className="space-y-8 animate-slide-up">
               <div>
                 <Badge className="bg-primary/10 text-primary border-primary/20 rounded-full px-6 py-2 text-sm font-medium mb-6">
                   About Moms-2-Go
                 </Badge>
-                <h2 className="font-serif font-bold text-4xl lg:text-5xl text-foreground tracking-tight mb-6">
+                <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-foreground tracking-tight mb-6">
                   More Than Transportation
                 </h2>
-                <p className="text-xl text-muted-foreground leading-relaxed font-light mb-8">
+                <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed font-light mb-8">
                   Founded by mothers, for mothers. We understand the unique challenges and concerns that come with
                   pregnancy and early motherhood. Our mission is to provide peace of mind through safe, reliable, and
                   compassionate transportation services.
@@ -343,18 +335,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="testimonials" className="py-32 bg-muted/30">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <section id="testimonials" className="py-16 sm:py-24 lg:py-32 bg-muted/30">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-6 mb-24 animate-slide-up">
-            <h2 className="font-serif font-bold text-4xl lg:text-6xl text-foreground tracking-tight">
+            <h2 className="font-serif font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground tracking-tight">
               What Mothers Say
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto font-light px-4 sm:px-0">
               Real experiences from real mothers who trust us with their most precious moments
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
               {
                 name: "Sarah Johnson",
@@ -401,28 +393,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-32 bg-gradient-to-br from-primary via-primary to-primary/90 relative overflow-hidden">
+      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-primary via-primary to-primary/90 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/subtle-pattern.png')] opacity-10"></div>
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center animate-fade-in relative">
-          <div className="space-y-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in relative">
+          <div className="space-y-8 sm:space-y-10 lg:space-y-12">
             <div className="space-y-6">
-              <h2 className="font-serif font-bold text-4xl lg:text-6xl text-primary-foreground tracking-tight">
+              <h2 className="font-serif font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-primary-foreground tracking-tight">
                 Ready for Your Safe Journey?
               </h2>
-              <p className="text-xl text-primary-foreground/90 leading-relaxed font-light max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg lg:text-xl text-primary-foreground/90 leading-relaxed font-light max-w-2xl mx-auto px-4 sm:px-0">
                 Join thousands of mothers who trust us for their transportation needs. Experience the difference of
                 specialized maternal care.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button
-                size="lg"
-                className="bg-background hover:bg-background/90 text-foreground rounded-2xl px-12 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl"
-              >
-                Book Your First Ride
-                <ArrowRight className="w-5 h-5 ml-3" />
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4 sm:px-0">
+              <Link href="/auth/signup">
+                <Button
+                  size="lg"
+                  className="bg-background hover:bg-background/90 text-foreground rounded-2xl px-12 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl"
+                >
+                  Book Your First Ride
+                  <ArrowRight className="w-5 h-5 ml-3" />
+                </Button>
+              </Link>
               <Button
                 size="lg"
                 variant="outline"
@@ -432,7 +426,7 @@ export default function HomePage() {
               </Button>
             </div>
 
-            <div className="flex items-center justify-center gap-8 pt-8 text-primary-foreground/80">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-8 pt-6 sm:pt-8 text-primary-foreground/80">
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5" />
                 <span>No signup fees</span>
@@ -450,10 +444,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="py-20 bg-foreground">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div className="md:col-span-2">
+      <footer className="py-12 sm:py-16 lg:py-20 bg-foreground">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-10 lg:mb-12">
+            <div className="sm:col-span-2 md:col-span-2">
               <div className="flex items-center gap-4 mb-6">
                 <Image src="/images/moms-2-go-logo.png" alt="Moms-2-Go" width={48} height={48} className="rounded-xl" />
                 <span className="font-serif font-bold text-2xl text-background tracking-tight">MOMS-2-GO</span>
@@ -514,227 +508,6 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {showLogin && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-6 z-50 animate-fade-in">
-          <Card className="w-full max-w-lg rounded-3xl shadow-2xl animate-scale-in">
-            <CardHeader className="text-center pb-8">
-              <CardTitle className="font-serif font-bold text-3xl text-foreground">Welcome Back</CardTitle>
-              <CardDescription className="text-muted-foreground text-lg font-light">
-                Access your dashboard with demo credentials
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="px-8 pb-8">
-              <div className="bg-muted/50 rounded-2xl p-6 mb-8">
-                <div className="text-sm font-semibold text-foreground mb-3">Demo Credentials:</div>
-                <div className="space-y-2 text-sm text-muted-foreground">
-                  <div className="flex justify-between">
-                    <span>Username:</span>
-                    <code className="bg-background px-3 py-1 rounded-lg text-primary font-mono font-semibold">
-                      demo
-                    </code>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Password:</span>
-                    <code className="bg-background px-3 py-1 rounded-lg text-primary font-mono font-semibold">
-                      1234
-                    </code>
-                  </div>
-                </div>
-              </div>
-
-              <form onSubmit={handleLogin} className="space-y-6">
-                <Input
-                  type="text"
-                  placeholder="Username"
-                  className="rounded-2xl h-14 text-lg border-2 focus:border-primary"
-                  defaultValue="demo"
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-                <Input
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="rounded-2xl h-14 text-lg border-2 focus:border-primary"
-                />
-                <div className="flex gap-4">
-                  <Button
-                    type="submit"
-                    className="flex-1 bg-primary hover:bg-primary/90 rounded-2xl h-14 text-lg font-semibold transition-all duration-300 hover:scale-105"
-                  >
-                    Access Dashboard
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={() => setShowLogin(false)}
-                    className="rounded-2xl h-14 px-8 border-2"
-                  >
-                    Cancel
-                  </Button>
-                </div>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
-      )}
-    </div>
-  )
-}
-
-function Dashboard() {
-  const [activeTab, setActiveTab] = useState("overview")
-
-  return (
-    <div className="min-h-screen bg-background">
-      <header className="bg-card/50 backdrop-blur-xl border-b border-border/50 sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center gap-4">
-              <Image src="/images/moms-2-go-logo.png" alt="Moms-2-Go" width={40} height={40} className="rounded-xl" />
-              <span className="font-serif font-bold text-xl text-primary tracking-tight">MOMS-2-GO</span>
-              <Badge className="bg-primary/10 text-primary border-primary/20 rounded-full px-4 py-1">Dashboard</Badge>
-            </div>
-            <Button
-              variant="outline"
-              onClick={() => window.location.reload()}
-              className="rounded-2xl border-2 hover:scale-105 transition-all duration-300"
-            >
-              Sign Out
-            </Button>
-          </div>
-        </div>
-      </header>
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-        <div className="flex flex-wrap gap-3 mb-12">
-          {[
-            { id: "overview", label: "Overview" },
-            { id: "analytics", label: "Analytics" },
-          ].map((tab) => (
-            <Button
-              key={tab.id}
-              variant={activeTab === tab.id ? "default" : "outline"}
-              onClick={() => setActiveTab(tab.id)}
-              className="rounded-2xl px-8 py-3 text-base font-medium transition-all duration-300 hover:scale-105"
-            >
-              {tab.label}
-            </Button>
-          ))}
-        </div>
-
-        {activeTab === "overview" && (
-          <div className="space-y-12 animate-fade-in">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                { title: "Total Rides", value: "2,847", change: "+12%", icon: Shield },
-                { title: "Active Drivers", value: "156", change: "+3%", icon: CheckCircle },
-                { title: "Happy Mothers", value: "1,923", change: "+18%", icon: Heart },
-                { title: "Emergency Assists", value: "23", change: "+2%", icon: Star },
-              ].map((stat, index) => (
-                <Card
-                  key={index}
-                  className="rounded-3xl border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 animate-scale-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <CardContent className="p-8">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-sm text-muted-foreground font-medium mb-2">{stat.title}</p>
-                        <p className="text-3xl font-bold text-foreground mb-1">{stat.value}</p>
-                        <p className="text-sm text-primary font-semibold">{stat.change} from last month</p>
-                      </div>
-                      <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center">
-                        <stat.icon className="w-8 h-8 text-primary" />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            <Card className="rounded-3xl border-0 shadow-xl animate-slide-up">
-              <CardHeader className="pb-8">
-                <CardTitle className="font-serif font-bold text-2xl">Recent Activity</CardTitle>
-                <CardDescription className="text-lg font-light">Latest rides and system updates</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                {[
-                  { passenger: "Sarah M.", destination: "General Hospital", time: "2 hours ago", status: "Completed" },
-                  { passenger: "Maria R.", destination: "Prenatal Clinic", time: "4 hours ago", status: "Completed" },
-                  {
-                    passenger: "Jennifer C.",
-                    destination: "Pediatric Office",
-                    time: "6 hours ago",
-                    status: "Completed",
-                  },
-                ].map((ride, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-between p-6 bg-muted/30 rounded-2xl hover:bg-muted/50 transition-all duration-300"
-                  >
-                    <div>
-                      <p className="font-semibold text-foreground text-lg">{ride.passenger}</p>
-                      <p className="text-muted-foreground">{ride.destination}</p>
-                    </div>
-                    <div className="text-right">
-                      <Badge className="bg-primary/10 text-primary border-primary/20 rounded-full px-4 py-1">
-                        {ride.status}
-                      </Badge>
-                      <p className="text-xs text-muted-foreground mt-2">{ride.time}</p>
-                    </div>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-          </div>
-        )}
-
-        {activeTab === "analytics" && (
-          <Card className="rounded-3xl border-0 shadow-xl animate-fade-in">
-            <CardHeader className="pb-8">
-              <CardTitle className="font-serif font-bold text-2xl">Service Analytics</CardTitle>
-              <CardDescription className="text-lg font-light">Key performance metrics and insights</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-8">
-                <div className="grid md:grid-cols-2 gap-12">
-                  <div className="space-y-6">
-                    <h3 className="font-serif font-bold text-xl">Service Distribution</h3>
-                    <div className="space-y-6">
-                      {[
-                        { label: "Prenatal Appointments", percentage: 45, color: "bg-primary" },
-                        { label: "Hospital Visits", percentage: 30, color: "bg-secondary" },
-                        { label: "Postpartum Care", percentage: 25, color: "bg-primary/60" },
-                      ].map((item, index) => (
-                        <div key={index} className="space-y-3">
-                          <div className="flex justify-between items-center">
-                            <span className="font-medium">{item.label}</span>
-                            <span className="font-bold text-lg">{item.percentage}%</span>
-                          </div>
-                          <div className="w-full bg-muted rounded-full h-3">
-                            <div
-                              className={`${item.color} h-3 rounded-full transition-all duration-1000 ease-out`}
-                              style={{ width: `${item.percentage}%` }}
-                            ></div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <h3 className="font-serif font-bold text-xl">Monthly Growth</h3>
-                    <div className="h-64 bg-muted/30 rounded-2xl flex items-center justify-center">
-                      <p className="text-muted-foreground font-light text-lg">Chart visualization area</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        )}
-      </div>
     </div>
   )
 }
