@@ -2,7 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Playfair_Display } from "next/font/google"
 import { Inter } from "next/font/google"
-import { SessionProvider } from "next-auth/react"
+import { Providers } from "./providers"
 import "./globals.css"
 
 const playfairDisplay = Playfair_Display({
@@ -39,9 +39,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfairDisplay.variable} ${inter.variable} antialiased`}>
       <body>
-        <SessionProvider>
+        <Providers>
           {children}
-        </SessionProvider>
+        </Providers>
       </body>
     </html>
   )

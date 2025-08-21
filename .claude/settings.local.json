@@ -9,7 +9,8 @@
       "Bash(rm:*)",
       "Bash(grep:*)",
       "Bash(node:*)",
-      "Bash(yarn run build)"
+      "Bash(yarn run build)",
+      "Bash(npx next build:*)"
     ],
     "deny": [],
     "ask": []
