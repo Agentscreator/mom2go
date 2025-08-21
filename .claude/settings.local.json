@@ -5,7 +5,10 @@
       "Bash(npm run dev:*)",
       "Bash(timeout:*)",
       "Bash(npm run build:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(rm:*)",
+      "Bash(grep:*)",
+      "Bash(node:*)"
     ],
     "deny": [],
     "ask": []
