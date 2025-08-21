@@ -1,4 +1,4 @@
-import NextAuth from 'next-auth'
+import NextAuth, { NextAuthOptions, getServerSession as getServerSessionNext } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { DrizzleAdapter } from '@auth/drizzle-adapter'
 import { db } from './db'
@@ -6,7 +6,7 @@ import { users } from './db/schema'
 import { eq } from 'drizzle-orm'
 import bcrypt from 'bcryptjs'
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+export const authOptions: NextAuthOptions = {
   adapter: DrizzleAdapter(db),
   providers: [
     CredentialsProvider({
@@ -67,6 +67,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   },
   pages: {
     signIn: '/auth/signin',
-    signUp: '/auth/signup',
   },
-})
+}
+
+export default NextAuth(authOptions)
+
+// Export helper function for getting server session
+export const auth = () => getServerSessionNext(authOptions)
