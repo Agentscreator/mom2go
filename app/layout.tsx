@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Playfair_Display } from "next/font/google"
 import { Inter } from "next/font/google"
+import { Providers } from "./providers"
 import "./globals.css"
 
 const playfairDisplay = Playfair_Display({
@@ -23,6 +24,11 @@ export const metadata: Metadata = {
   description:
     "Professional ride service for pregnant and postpartum mothers with CPR-certified drivers and emergency-ready vehicles.",
   generator: "v0.app",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
 }
 
 export default function RootLayout({
@@ -32,7 +38,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfairDisplay.variable} ${inter.variable} antialiased`}>
-      <body>{children}</body>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   )
 }
