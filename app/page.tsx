@@ -114,9 +114,6 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center space-y-8 sm:space-y-10 lg:space-y-12 animate-fade-in">
             <div className="space-y-6 sm:space-y-8">
-              <Badge className="bg-primary/10 text-primary border-primary/20 rounded-full px-4 sm:px-6 lg:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium shadow-lg">
-                ✨ Trusted by 10,000+ Mothers Nationwide
-              </Badge>
 
               <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl leading-[0.9] text-foreground tracking-tight">
                 Safe Rides for
@@ -151,41 +148,18 @@ export default function HomePage() {
               </Button>
             </div>
 
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 pt-12 sm:pt-16">
-              <div className="flex items-center gap-4">
-                <div className="flex -space-x-3">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <div
-                      key={i}
-                      className="w-14 h-14 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 border-4 border-background flex items-center justify-center shadow-lg"
-                    >
-                      <Heart className="w-6 h-6 text-primary" />
-                    </div>
-                  ))}
-                </div>
-                <div className="text-left ml-4">
-                  <div className="flex items-center gap-1 mb-1">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-base text-muted-foreground font-medium">4.9/5 from 2,847 rides</p>
-                </div>
+            <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 text-center flex-wrap justify-center pt-12 sm:pt-16">
+              <div>
+                <p className="text-2xl font-bold text-primary">24/7</p>
+                <p className="text-sm text-muted-foreground">Available</p>
               </div>
-
-              <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 text-center flex-wrap justify-center">
-                <div>
-                  <p className="text-2xl font-bold text-primary">24/7</p>
-                  <p className="text-sm text-muted-foreground">Available</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-primary">156</p>
-                  <p className="text-sm text-muted-foreground">Certified Drivers</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-primary">100%</p>
-                  <p className="text-sm text-muted-foreground">Safety Record</p>
-                </div>
+              <div>
+                <p className="text-2xl font-bold text-primary">156</p>
+                <p className="text-sm text-muted-foreground">Certified Drivers</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-primary">100%</p>
+                <p className="text-sm text-muted-foreground">Safety Record</p>
               </div>
             </div>
           </div>
@@ -353,21 +327,18 @@ export default function HomePage() {
                 role: "First-time Mom",
                 content:
                   "When my water broke at 2 AM, Moms-2GO was there in 4 minutes. The driver was calm, professional, and got us to the hospital safely. I can't thank them enough!",
-                rating: 5,
               },
               {
                 name: "Maria Rodriguez",
                 role: "Mother of Two",
                 content:
                   "The peace of mind knowing I have reliable transportation for all my prenatal appointments is invaluable. The drivers are so understanding and accommodating.",
-                rating: 5,
               },
               {
                 name: "Jennifer Chen",
                 role: "Working Mom",
                 content:
                   "As a busy professional, having Moms-2GO handle my transportation needs during pregnancy was a game-changer. Reliable, safe, and always on time.",
-                rating: 5,
               },
             ].map((testimonial, index) => (
               <Card
@@ -376,11 +347,6 @@ export default function HomePage() {
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <CardContent className="p-8">
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                    ))}
-                  </div>
                   <p className="text-muted-foreground leading-relaxed mb-6 italic">"{testimonial.content}"</p>
                   <div>
                     <p className="font-semibold text-foreground">{testimonial.name}</p>
