@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
         passengerId: passenger[0].id.toString(),
         userId: userId.toString(),
       },
-      description: `Moms-2-Go Ride #${validatedData.rideId} - ${ride[0].pickupAddress} to ${ride[0].destinationAddress}`,
+      description: `Moms-2GO Ride #${validatedData.rideId} - ${ride[0].pickupAddress} to ${ride[0].destinationAddress}`,
     })
 
     // Create or update payment record

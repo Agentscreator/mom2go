@@ -44,12 +44,12 @@ export default function HomePage() {
             <div className="flex items-center gap-4">
               <Image
                 src="/images/moms-2-go-car.jpg"
-                alt="Moms-2-Go"
+                alt="Moms-2GO"
                 width={64}
                 height={64}
                 className="rounded-2xl shadow-lg opacity-80"
               />
-              <span className="font-serif font-medium text-xl sm:text-2xl lg:text-3xl text-primary tracking-tight">MOMS-2-GO</span>
+              <span className="font-serif font-medium text-xl sm:text-2xl lg:text-3xl text-primary tracking-tight">MOMS-2GO</span>
             </div>
 
             <div className="hidden md:flex items-center gap-8">
@@ -278,7 +278,7 @@ export default function HomePage() {
             <div className="space-y-8 animate-slide-up">
               <div>
                 <Badge className="bg-primary/10 text-primary border-primary/20 rounded-full px-6 py-2 text-sm font-medium mb-6">
-                  About Moms-2-Go
+                  About Moms-2GO
                 </Badge>
                 <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-foreground tracking-tight mb-6">
                   More Than Transportation
@@ -322,7 +322,7 @@ export default function HomePage() {
                 <div className="text-center space-y-4">
                   <Image
                     src="/images/moms-2-go-car.jpg"
-                    alt="Moms-2-Go"
+                    alt="Moms-2GO"
                     width={120}
                     height={120}
                     className="rounded-3xl mx-auto shadow-2xl opacity-90"
@@ -352,7 +352,7 @@ export default function HomePage() {
                 name: "Sarah Johnson",
                 role: "First-time Mom",
                 content:
-                  "When my water broke at 2 AM, Moms-2-Go was there in 4 minutes. The driver was calm, professional, and got us to the hospital safely. I can't thank them enough!",
+                  "When my water broke at 2 AM, Moms-2GO was there in 4 minutes. The driver was calm, professional, and got us to the hospital safely. I can't thank them enough!",
                 rating: 5,
               },
               {
@@ -366,7 +366,7 @@ export default function HomePage() {
                 name: "Jennifer Chen",
                 role: "Working Mom",
                 content:
-                  "As a busy professional, having Moms-2-Go handle my transportation needs during pregnancy was a game-changer. Reliable, safe, and always on time.",
+                  "As a busy professional, having Moms-2GO handle my transportation needs during pregnancy was a game-changer. Reliable, safe, and always on time.",
                 rating: 5,
               },
             ].map((testimonial, index) => (
@@ -449,8 +449,8 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-10 lg:mb-12">
             <div className="sm:col-span-2 md:col-span-2">
               <div className="flex items-center gap-4 mb-6">
-                <Image src="/images/moms-2-go-car.jpg" alt="Moms-2-Go" width={48} height={48} className="rounded-xl opacity-85" />
-                <span className="font-serif font-medium text-2xl text-background tracking-tight">MOMS-2-GO</span>
+                <Image src="/images/moms-2-go-car.jpg" alt="Moms-2GO" width={48} height={48} className="rounded-xl opacity-85" />
+                <span className="font-serif font-medium text-2xl text-background tracking-tight">MOMS-2GO</span>
               </div>
               <p className="text-background/70 leading-relaxed mb-6 max-w-md">
                 Providing safe, reliable, and compassionate transportation for expecting and new mothers across the
@@ -490,7 +490,7 @@ export default function HomePage() {
           <div className="border-t border-background/20 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-background/70 text-center font-light">
-                © 2024 Moms-2-Go. Safe rides for life's precious moments.
+                © 2024 Moms-2GO. Safe rides for life's precious moments.
               </p>
               <div className="flex items-center gap-6 text-background/70 text-sm">
                 <a href="#" className="hover:text-background transition-colors">

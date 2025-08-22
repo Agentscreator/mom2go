@@ -241,7 +241,7 @@ export default function PaymentPage({ params }: PaymentPageProps) {
             </div>
             <h2 className="font-serif font-bold text-2xl mb-2">Payment Successful!</h2>
             <p className="text-muted-foreground mb-4">
-              Your payment has been processed successfully. Thank you for choosing Moms-2-Go!
+              Your payment has been processed successfully. Thank you for choosing Moms-2GO!
             </p>
             <Badge className="bg-green-100 text-green-700 border-green-200 rounded-full px-4 py-2">
               Amount Paid: ${rideData?.fareAmount}

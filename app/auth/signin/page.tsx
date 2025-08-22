@@ -52,13 +52,13 @@ export default function SignInPage() {
           <div className="flex items-center justify-center gap-3 mb-6">
             <Image
               src="/images/moms-2-go-logo.png"
-              alt="Moms-2-Go"
+              alt="Moms-2GO"
               width={48}
               height={48}
               className="rounded-xl"
             />
             <span className="font-serif font-bold text-2xl text-primary tracking-tight">
-              MOMS-2-GO
+              MOMS-2GO
             </span>
           </div>
           <h1 className="font-serif font-bold text-3xl text-foreground mb-2">

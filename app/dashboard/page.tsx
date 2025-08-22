@@ -115,13 +115,13 @@ export default function DashboardPage() {
             <div className="flex items-center gap-4">
               <Image 
                 src="/images/moms-2-go-logo.png" 
-                alt="Moms-2-Go" 
+                alt="Moms-2GO" 
                 width={40} 
                 height={40} 
                 className="rounded-xl" 
               />
               <span className="font-serif font-bold text-lg sm:text-xl text-primary tracking-tight">
-                MOMS-2-GO
+                MOMS-2GO
               </span>
               <Badge className="bg-primary/10 text-primary border-primary/20 rounded-full px-3 py-1 text-xs sm:text-sm hidden sm:block">
                 {userRole === 'passenger' ? 'Passenger' : userRole === 'driver' ? 'Driver' : 'Admin'} Dashboard

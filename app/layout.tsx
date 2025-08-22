@@ -20,7 +20,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Moms-2-Go | Safe Rides for Expecting & New Mothers",
+  title: "Moms-2GO | Safe Rides for Expecting & New Mothers",
   description:
     "Professional ride service for pregnant and postpartum mothers with CPR-certified drivers and emergency-ready vehicles.",
   generator: "v0.app",

@@ -161,7 +161,7 @@ function getNotificationMessage(type: string, data: any): string {
     case 'driver_arrived': 
       return `Your driver has arrived and is waiting for you`
     case 'ride_completed': 
-      return `Your ride is complete. Thank you for choosing Moms-2-Go!`
+      return `Your ride is complete. Thank you for choosing Moms-2GO!`
     case 'driver_application': 
       return `Your driver application has been received and is being reviewed`
     case 'emergency_alert': 
