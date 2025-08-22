@@ -43,13 +43,13 @@ export default function HomePage() {
           <div className="flex justify-between items-center h-16 sm:h-20 lg:h-24">
             <div className="flex items-center gap-4">
               <Image
-                src="/images/moms-2-go-logo.png"
+                src="/images/moms-2-go-car.jpg"
                 alt="Moms-2-Go"
                 width={64}
                 height={64}
-                className="rounded-2xl shadow-lg"
+                className="rounded-2xl shadow-lg opacity-80"
               />
-              <span className="font-serif font-bold text-xl sm:text-2xl lg:text-3xl text-primary tracking-tight">MOMS-2-GO</span>
+              <span className="font-serif font-medium text-xl sm:text-2xl lg:text-3xl text-primary tracking-tight">MOMS-2-GO</span>
             </div>
 
             <div className="hidden md:flex items-center gap-8">
@@ -321,11 +321,11 @@ export default function HomePage() {
               <div className="aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl flex items-center justify-center">
                 <div className="text-center space-y-4">
                   <Image
-                    src="/images/moms-2-go-logo.png"
+                    src="/images/moms-2-go-car.jpg"
                     alt="Moms-2-Go"
                     width={120}
                     height={120}
-                    className="rounded-3xl mx-auto shadow-2xl"
+                    className="rounded-3xl mx-auto shadow-2xl opacity-90"
                   />
                   <p className="text-lg font-medium text-muted-foreground">Trusted by families nationwide</p>
                 </div>
@@ -449,8 +449,8 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-10 lg:mb-12">
             <div className="sm:col-span-2 md:col-span-2">
               <div className="flex items-center gap-4 mb-6">
-                <Image src="/images/moms-2-go-logo.png" alt="Moms-2-Go" width={48} height={48} className="rounded-xl" />
-                <span className="font-serif font-bold text-2xl text-background tracking-tight">MOMS-2-GO</span>
+                <Image src="/images/moms-2-go-car.jpg" alt="Moms-2-Go" width={48} height={48} className="rounded-xl opacity-85" />
+                <span className="font-serif font-medium text-2xl text-background tracking-tight">MOMS-2-GO</span>
               </div>
               <p className="text-background/70 leading-relaxed mb-6 max-w-md">
                 Providing safe, reliable, and compassionate transportation for expecting and new mothers across the
