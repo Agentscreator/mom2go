@@ -45,11 +45,11 @@ export default function HomePage() {
               <Image
                 src="/images/moms-2-go-car.jpg"
                 alt="Moms-2GO"
-                width={64}
-                height={64}
-                className="rounded-2xl shadow-lg opacity-80"
+                width={96}
+                height={96}
+                className="rounded-3xl shadow-xl opacity-90 ring-2 ring-primary/20"
               />
-              <span className="font-serif font-medium text-xl sm:text-2xl lg:text-3xl text-primary tracking-tight">MOMS-2GO</span>
+              <span className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-primary tracking-tight drop-shadow-sm">MOMS-2GO</span>
             </div>
 
             <div className="hidden md:flex items-center gap-8">
@@ -109,7 +109,7 @@ export default function HomePage() {
         </div>
       </nav>
 
-      <section className="relative py-16 sm:py-24 lg:py-32 xl:py-48 overflow-hidden">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Mobile background */}
         <div className="absolute inset-0 md:hidden">
           <div 
@@ -118,69 +118,82 @@ export default function HomePage() {
               backgroundImage: "url('/images/hero-background-mobile.png')"
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/60 via-purple-800/50 to-purple-600/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-purple-900/80 to-purple-800/70"></div>
         </div>
         
         {/* Desktop background */}
         <div className="absolute inset-0 hidden md:block">
           <div 
-            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            className="w-full h-full bg-cover bg-right bg-no-repeat"
             style={{
               backgroundImage: "url('/images/hero-background-desktop.png')"
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/50 via-purple-700/40 to-purple-500/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-purple-900/60 to-transparent"></div>
         </div>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center space-y-8 sm:space-y-10 lg:space-y-12 animate-fade-in">
-            <div className="space-y-6 sm:space-y-8">
+        {/* Content Container */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+            {/* Left Column - Text Content */}
+            <div className="space-y-8 lg:space-y-10 text-center lg:text-left">
+              {/* Content Panel for better readability */}
+              <div className="bg-black/20 backdrop-blur-md rounded-3xl p-6 sm:p-8 lg:p-10 border border-white/10 shadow-2xl">
+                <div className="space-y-6 sm:space-y-8">
 
-              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl leading-[0.9] text-white drop-shadow-lg tracking-tight">
-                Safe Rides for
-                <br />
-                <span className="bg-gradient-to-r from-purple-300 via-pink-300 to-purple-200 bg-clip-text text-transparent drop-shadow-sm">
-                  Expecting Mothers
-                </span>
-              </h1>
+                  <h1 className="font-serif font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[0.85] text-white tracking-tight">
+                    <span className="block text-white/95 font-light">Safe Rides for</span>
+                    <span className="block bg-gradient-to-r from-purple-300 via-pink-300 to-purple-200 bg-clip-text text-transparent font-black">
+                      Expecting Mothers
+                    </span>
+                  </h1>
 
-              <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-white/95 leading-relaxed max-w-4xl mx-auto font-light px-4 sm:px-0 drop-shadow-md">
-                Professional transportation with CPR-certified drivers, spacious vehicles, and emergency-ready
-                technology designed specifically for your precious journey to motherhood.
-              </p>
-            </div>
+                  <p className="text-lg sm:text-xl lg:text-2xl text-white/85 leading-relaxed font-light tracking-wide">
+                    Professional transportation with CPR-certified drivers, spacious vehicles, and emergency-ready
+                    technology designed specifically for your precious journey to motherhood.
+                  </p>
+                </div>
+              </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4 sm:px-0">
-              <Link href="/auth/signup" className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-2xl px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl w-full border border-purple-500/30"
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start items-center">
+                <Link href="/auth/signup" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-3xl px-12 sm:px-16 py-5 sm:py-6 text-lg sm:text-xl font-bold tracking-wide transition-all duration-500 hover:scale-105 shadow-2xl hover:shadow-purple-500/30 w-full border border-purple-400/30 hover:border-purple-300/50"
                 >
                   Book Your Ride Now
                   <ArrowRight className="w-5 h-5 ml-3" />
                 </Button>
               </Link>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-2xl px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-semibold border-2 border-purple-300/60 text-purple-100 hover:bg-purple-100/10 hover:border-purple-200 hover:scale-105 transition-all duration-300 bg-transparent w-full sm:w-auto backdrop-blur-sm"
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-3xl px-12 sm:px-16 py-5 sm:py-6 text-lg sm:text-xl font-bold tracking-wide border-2 border-white/40 text-white hover:bg-white/10 hover:border-white/60 hover:scale-105 transition-all duration-500 bg-white/5 w-full sm:w-auto backdrop-blur-md"
               >
                 Learn More
-              </Button>
-            </div>
+                </Button>
+              </div>
 
-            <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 text-center flex-wrap justify-center pt-12 sm:pt-16">
-              <div>
-                <p className="text-2xl font-bold text-purple-200 drop-shadow-sm">24/7</p>
-                <p className="text-sm text-purple-100/90">Available</p>
+              {/* Stats */}
+              <div className="flex items-center gap-6 sm:gap-8 text-center flex-wrap justify-center lg:justify-start pt-8">
+                <div>
+                  <p className="text-4xl font-black text-white tracking-tight">24/7</p>
+                  <p className="text-xs text-white/70 font-medium uppercase tracking-widest">Available</p>
+                </div>
+                <div>
+                  <p className="text-4xl font-black text-white tracking-tight">156</p>
+                  <p className="text-xs text-white/70 font-medium uppercase tracking-widest">Certified Drivers</p>
+                </div>
+                <div>
+                  <p className="text-4xl font-black text-white tracking-tight">100%</p>
+                  <p className="text-xs text-white/70 font-medium uppercase tracking-widest">Safety Record</p>
+                </div>
               </div>
-              <div>
-                <p className="text-2xl font-bold text-purple-200 drop-shadow-sm">156</p>
-                <p className="text-sm text-purple-100/90">Certified Drivers</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-purple-200 drop-shadow-sm">100%</p>
-                <p className="text-sm text-purple-100/90">Safety Record</p>
-              </div>
+            </div>
+            
+            {/* Right Column - Visual Space for Background */}
+            <div className="hidden lg:block">
+              {/* This space allows the background image to show through */}
             </div>
           </div>
         </div>
