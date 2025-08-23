@@ -38,7 +38,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/50">
+      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-purple-200/30 shadow-lg">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20 lg:h-24">
             <div className="flex items-center gap-4">
@@ -47,28 +47,28 @@ export default function HomePage() {
                 alt="Moms-2GO"
                 width={96}
                 height={96}
-                className="rounded-3xl shadow-xl opacity-90 ring-2 ring-slate-200"
+                className="rounded-3xl shadow-xl opacity-90 ring-2 ring-purple-200"
               />
-              <span className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">MOMS-2GO</span>
+              <span className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-purple-900 tracking-tight">MOMS-2GO</span>
             </div>
 
             <div className="hidden md:flex items-center gap-8">
               <nav className="flex items-center gap-8">
-                <a href="#services" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">
+                <a href="#services" className="text-purple-700 hover:text-purple-900 transition-colors font-medium">
                   Services
                 </a>
-                <a href="#about" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">
+                <a href="#about" className="text-purple-700 hover:text-purple-900 transition-colors font-medium">
                   About
                 </a>
                 <a
                   href="#testimonials"
-                  className="text-slate-600 hover:text-slate-900 transition-colors font-medium"
+                  className="text-purple-700 hover:text-purple-900 transition-colors font-medium"
                 >
                   Reviews
                 </a>
               </nav>
               <Link href="/auth/signin">
-                <Button className="bg-slate-900 hover:bg-slate-800 text-white rounded-full px-8 py-3 text-base font-semibold transition-all duration-300 hover:scale-105 shadow-lg">
+                <Button className="bg-purple-900 hover:bg-purple-800 text-white rounded-full px-8 py-3 text-base font-semibold transition-all duration-300 hover:scale-105 shadow-lg">
                   Access Dashboard
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -83,23 +83,23 @@ export default function HomePage() {
           </div>
 
           {mobileMenuOpen && (
-            <div className="md:hidden py-4 border-t border-slate-200/50 animate-fade-in space-y-3 bg-white/95 backdrop-blur-sm">
+            <div className="md:hidden py-4 border-t border-purple-200/30 animate-fade-in space-y-3 bg-white/95 backdrop-blur-sm">
               <nav className="flex flex-col gap-4">
-                <a href="#services" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">
+                <a href="#services" className="text-purple-700 hover:text-purple-900 transition-colors font-medium">
                   Services
                 </a>
-                <a href="#about" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">
+                <a href="#about" className="text-purple-700 hover:text-purple-900 transition-colors font-medium">
                   About
                 </a>
                 <a
                   href="#testimonials"
-                  className="text-slate-600 hover:text-slate-900 transition-colors font-medium"
+                  className="text-purple-700 hover:text-purple-900 transition-colors font-medium"
                 >
                   Reviews
                 </a>
               </nav>
               <Link href="/auth/signin">
-                <Button className="w-full bg-slate-900 hover:bg-slate-800 text-white rounded-full px-8 py-3 text-base font-semibold">
+                <Button className="w-full bg-purple-900 hover:bg-purple-800 text-white rounded-full px-8 py-3 text-base font-semibold">
                   Access Dashboard
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -109,49 +109,52 @@ export default function HomePage() {
         </div>
       </nav>
 
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100">
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_rgba(0,0,0,0.15)_1px,_transparent_0)] bg-[size:20px_20px]"></div>
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Mobile background */}
+        <div className="absolute inset-0 md:hidden">
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/images/hero-background-mobile.png')"
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/70 via-purple-800/60 to-purple-700/50"></div>
         </div>
         
-        {/* Background image - more subtle and elegant */}
-        <div className="absolute inset-0 hidden lg:block">
-          <div className="absolute right-0 top-0 w-1/2 h-full">
-            <div 
-              className="w-full h-full bg-cover bg-center bg-no-repeat opacity-20"
-              style={{
-                backgroundImage: "url('/images/hero-background-desktop.png')"
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/20 to-white"></div>
-          </div>
+        {/* Desktop background */}
+        <div className="absolute inset-0 hidden md:block">
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/images/hero-background-desktop.png')"
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-900/80 via-purple-800/60 to-purple-700/40"></div>
         </div>
         {/* Content Container */}
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[85vh]">
             {/* Left Column - Text Content */}
-            <div className="space-y-12 text-center lg:text-left">
-                <div className="space-y-8">
-                  <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl leading-[0.9] tracking-tight">
-                    <span className="block text-slate-600 font-light mb-2">Safe Rides for</span>
-                    <span className="block text-slate-900 font-bold">
+            <div className="space-y-10 text-center lg:text-left">
+                <div className="space-y-6">
+                  <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[0.9] tracking-tight text-white drop-shadow-lg">
+                    <span className="block font-light mb-1">Safe Rides for</span>
+                    <span className="block font-bold bg-gradient-to-r from-purple-200 to-pink-200 bg-clip-text text-transparent">
                       Expecting Mothers
                     </span>
                   </h1>
 
-                  <p className="text-xl lg:text-2xl text-slate-600 leading-relaxed font-light max-w-2xl">
-                    Professional transportation with CPR-certified drivers and emergency-ready technology 
-                    designed for your precious journey to motherhood.
+                  <p className="text-lg lg:text-xl text-white/90 leading-relaxed font-light max-w-xl drop-shadow-md">
+                    Professional transportation with CPR-certified drivers designed for your precious journey.
                   </p>
                 </div>
 
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
                 <Link href="/auth/signup" className="w-full sm:w-auto">
                   <Button
                     size="lg"
-                    className="bg-slate-900 hover:bg-slate-800 text-white rounded-full px-12 py-4 text-lg font-semibold tracking-wide transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto"
+                    className="bg-white text-purple-900 hover:bg-purple-50 rounded-full px-10 py-4 text-lg font-bold tracking-wide transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl w-full sm:w-auto"
                 >
                   Book Your Ride Now
                   <ArrowRight className="w-5 h-5 ml-3" />
@@ -160,25 +163,25 @@ export default function HomePage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full px-12 py-4 text-lg font-semibold tracking-wide border-2 border-slate-300 text-slate-700 hover:bg-slate-50 hover:border-slate-400 hover:scale-105 transition-all duration-300 bg-white w-full sm:w-auto"
+                  className="rounded-full px-10 py-4 text-lg font-semibold tracking-wide border-2 border-white/40 text-white hover:bg-white/10 hover:border-white/60 hover:scale-105 transition-all duration-300 bg-transparent w-full sm:w-auto backdrop-blur-sm"
               >
                 Learn More
                 </Button>
               </div>
 
               {/* Stats */}
-              <div className="flex items-center gap-12 text-center flex-wrap justify-center lg:justify-start">
-                <div className="text-left">
-                  <p className="text-3xl font-bold text-slate-900">24/7</p>
-                  <p className="text-sm text-slate-500 font-medium">Available</p>
+              <div className="flex items-center gap-8 text-center flex-wrap justify-center lg:justify-start">
+                <div>
+                  <p className="text-2xl font-bold text-white drop-shadow-sm">24/7</p>
+                  <p className="text-sm text-white/80 font-medium">Available</p>
                 </div>
-                <div className="text-left">
-                  <p className="text-3xl font-bold text-slate-900">156</p>
-                  <p className="text-sm text-slate-500 font-medium">Certified Drivers</p>
+                <div>
+                  <p className="text-2xl font-bold text-white drop-shadow-sm">156</p>
+                  <p className="text-sm text-white/80 font-medium">Certified Drivers</p>
                 </div>
-                <div className="text-left">
-                  <p className="text-3xl font-bold text-slate-900">100%</p>
-                  <p className="text-sm text-slate-500 font-medium">Safety Record</p>
+                <div>
+                  <p className="text-2xl font-bold text-white drop-shadow-sm">100%</p>
+                  <p className="text-sm text-white/80 font-medium">Safety Record</p>
                 </div>
               </div>
             </div>
