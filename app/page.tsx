@@ -110,12 +110,32 @@ export default function HomePage() {
       </nav>
 
       <section className="relative py-16 sm:py-24 lg:py-32 xl:py-48 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
+        {/* Mobile background */}
+        <div className="absolute inset-0 md:hidden">
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/images/hero-background-mobile.png')"
+            }}
+          />
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+        
+        {/* Desktop background */}
+        <div className="absolute inset-0 hidden md:block">
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/images/hero-background-desktop.png')"
+            }}
+          />
+          <div className="absolute inset-0 bg-black/30"></div>
+        </div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center space-y-8 sm:space-y-10 lg:space-y-12 animate-fade-in">
             <div className="space-y-6 sm:space-y-8">
 
-              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl leading-[0.9] text-foreground tracking-tight">
+              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl leading-[0.9] text-white tracking-tight">
                 Safe Rides for
                 <br />
                 <span className="text-primary bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
@@ -123,7 +143,7 @@ export default function HomePage() {
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-muted-foreground leading-relaxed max-w-4xl mx-auto font-light px-4 sm:px-0">
+              <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-white/90 leading-relaxed max-w-4xl mx-auto font-light px-4 sm:px-0">
                 Professional transportation with CPR-certified drivers, spacious vehicles, and emergency-ready
                 technology designed specifically for your precious journey to motherhood.
               </p>
@@ -150,16 +170,16 @@ export default function HomePage() {
 
             <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 text-center flex-wrap justify-center pt-12 sm:pt-16">
               <div>
-                <p className="text-2xl font-bold text-primary">24/7</p>
-                <p className="text-sm text-muted-foreground">Available</p>
+                <p className="text-2xl font-bold text-white">24/7</p>
+                <p className="text-sm text-white/80">Available</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-primary">156</p>
-                <p className="text-sm text-muted-foreground">Certified Drivers</p>
+                <p className="text-2xl font-bold text-white">156</p>
+                <p className="text-sm text-white/80">Certified Drivers</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-primary">100%</p>
-                <p className="text-sm text-muted-foreground">Safety Record</p>
+                <p className="text-2xl font-bold text-white">100%</p>
+                <p className="text-sm text-white/80">Safety Record</p>
               </div>
             </div>
           </div>
