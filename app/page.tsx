@@ -118,7 +118,7 @@ export default function HomePage() {
               backgroundImage: "url('/images/hero-background-mobile.png')"
             }}
           />
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/60 via-purple-800/50 to-purple-600/40"></div>
         </div>
         
         {/* Desktop background */}
@@ -129,21 +129,21 @@ export default function HomePage() {
               backgroundImage: "url('/images/hero-background-desktop.png')"
             }}
           />
-          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/50 via-purple-700/40 to-purple-500/30"></div>
         </div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center space-y-8 sm:space-y-10 lg:space-y-12 animate-fade-in">
             <div className="space-y-6 sm:space-y-8">
 
-              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl leading-[0.9] text-white tracking-tight">
+              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl leading-[0.9] text-white drop-shadow-lg tracking-tight">
                 Safe Rides for
                 <br />
-                <span className="text-primary bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-purple-300 via-pink-300 to-purple-200 bg-clip-text text-transparent drop-shadow-sm">
                   Expecting Mothers
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-white/90 leading-relaxed max-w-4xl mx-auto font-light px-4 sm:px-0">
+              <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-white/95 leading-relaxed max-w-4xl mx-auto font-light px-4 sm:px-0 drop-shadow-md">
                 Professional transportation with CPR-certified drivers, spacious vehicles, and emergency-ready
                 technology designed specifically for your precious journey to motherhood.
               </p>
@@ -153,7 +153,7 @@ export default function HomePage() {
               <Link href="/auth/signup" className="w-full sm:w-auto">
                 <Button
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl w-full"
+                  className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-2xl px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl w-full border border-purple-500/30"
                 >
                   Book Your Ride Now
                   <ArrowRight className="w-5 h-5 ml-3" />
@@ -162,7 +162,7 @@ export default function HomePage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-2xl px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-semibold border-2 hover:scale-105 transition-all duration-300 bg-transparent w-full sm:w-auto"
+                className="rounded-2xl px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-semibold border-2 border-purple-300/60 text-purple-100 hover:bg-purple-100/10 hover:border-purple-200 hover:scale-105 transition-all duration-300 bg-transparent w-full sm:w-auto backdrop-blur-sm"
               >
                 Learn More
               </Button>
@@ -170,16 +170,16 @@ export default function HomePage() {
 
             <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 text-center flex-wrap justify-center pt-12 sm:pt-16">
               <div>
-                <p className="text-2xl font-bold text-white">24/7</p>
-                <p className="text-sm text-white/80">Available</p>
+                <p className="text-2xl font-bold text-purple-200 drop-shadow-sm">24/7</p>
+                <p className="text-sm text-purple-100/90">Available</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-white">156</p>
-                <p className="text-sm text-white/80">Certified Drivers</p>
+                <p className="text-2xl font-bold text-purple-200 drop-shadow-sm">156</p>
+                <p className="text-sm text-purple-100/90">Certified Drivers</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-white">100%</p>
-                <p className="text-sm text-white/80">Safety Record</p>
+                <p className="text-2xl font-bold text-purple-200 drop-shadow-sm">100%</p>
+                <p className="text-sm text-purple-100/90">Safety Record</p>
               </div>
             </div>
           </div>
