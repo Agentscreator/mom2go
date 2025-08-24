@@ -155,7 +155,7 @@ export default function SignUpPage() {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-6">
             <Image
-              src="/images/moms-2-go-branded-car.png"
+              src="/images/moms-2-go-new.jpg"
               alt="Moms-2GO"
               width={56}
               height={56}
