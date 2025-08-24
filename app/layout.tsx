@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Playfair_Display } from "next/font/google"
-import { Inter } from "next/font/google"
+import { Playfair_Display, Inter, Crimson_Text } from "next/font/google"
 import { Providers } from "./providers"
 import "./globals.css"
 
@@ -9,18 +8,25 @@ const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-playfair-display",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 })
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
-  weight: ["300", "400", "500", "600"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+})
+
+const crimsonText = Crimson_Text({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-crimson-text",
+  weight: ["400", "600"],
 })
 
 export const metadata: Metadata = {
-  title: "Moms-2-Go | Safe Rides for Expecting & New Mothers",
+  title: "Moms-2GO | Safe Rides for Expecting & New Mothers",
   description:
     "Professional ride service for pregnant and postpartum mothers with CPR-certified drivers and emergency-ready vehicles.",
   generator: "v0.app",
@@ -37,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${playfairDisplay.variable} ${inter.variable} antialiased`}>
+    <html lang="en" className={`${playfairDisplay.variable} ${inter.variable} ${crimsonText.variable} antialiased`}>
       <body>
         <Providers>
           {children}

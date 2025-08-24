@@ -1,4 +1,4 @@
-# Moms-2-Go - Safe Transportation for Expecting & New Mothers
+# Moms-2GO - Safe Transportation for Expecting & New Mothers
 
 A fully functional web application providing safe, reliable transportation services specifically designed for pregnant and postpartum mothers with CPR-certified drivers.
 
@@ -241,4 +241,4 @@ For questions or issues:
 
 ---
 
-**Moms-2-Go** - Safe rides for life's precious moments 💝
+**Moms-2GO** - Safe rides for life's precious moments 💝

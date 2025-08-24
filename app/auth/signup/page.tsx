@@ -155,28 +155,28 @@ export default function SignUpPage() {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-6">
             <Image
-              src="/images/moms-2-go-logo.png"
-              alt="Moms-2-Go"
-              width={48}
-              height={48}
-              className="rounded-xl"
+              src="/images/moms-2-go-branded-car.png"
+              alt="Moms-2GO"
+              width={56}
+              height={56}
+              className="rounded-2xl shadow-lg ring-2 ring-primary/20"
             />
-            <span className="font-serif font-bold text-2xl text-primary tracking-tight">
-              MOMS-2-GO
+            <span className="font-serif font-bold text-3xl text-primary tracking-tight">
+              MOMS-2GO
             </span>
           </div>
-          <h1 className="font-serif font-bold text-3xl text-foreground mb-2">
+          <h1 className="font-serif font-bold text-4xl text-foreground mb-4 leading-tight">
             Join Our Community
           </h1>
-          <p className="text-muted-foreground">
-            Create your account to start your safe journey with us
+          <p className="text-muted-foreground text-lg leading-relaxed max-w-md mx-auto">
+            Create your account to start your safe journey with certified drivers
           </p>
         </div>
 
-        <Card className="rounded-3xl shadow-xl border-0">
+        <Card className="rounded-3xl shadow-2xl border-0 bg-card/95 backdrop-blur-sm">
           <CardHeader className="text-center pb-6">
-            <CardTitle className="font-serif font-bold text-2xl">Sign Up</CardTitle>
-            <CardDescription>
+            <CardTitle className="font-serif font-bold text-2xl text-foreground">Sign Up</CardTitle>
+            <CardDescription className="text-muted-foreground text-base mt-2">
               Choose your role and create your account
             </CardDescription>
           </CardHeader>

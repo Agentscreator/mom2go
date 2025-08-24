@@ -28,7 +28,7 @@ export async function sendEmail(options: EmailOptions) {
     }
 
     const result = await emailTransporter.sendMail({
-      from: `"Moms-2-Go" <${process.env.SMTP_FROM || 'noreply@moms2go.com'}>`,
+      from: `"Moms-2GO" <${process.env.SMTP_FROM || 'noreply@moms2go.com'}>`,
       to: options.to,
       subject: options.subject,
       html: options.html,
@@ -47,7 +47,7 @@ export async function sendEmail(options: EmailOptions) {
 // Email templates
 export const emailTemplates = {
   rideBooked: (data: { passengerName: string; pickupAddress: string; destinationAddress: string; scheduledTime: string; fareAmount: string }) => ({
-    subject: 'Ride Confirmed - Moms-2-Go',
+    subject: 'Ride Confirmed - Moms-2GO',
     html: `
       <!DOCTYPE html>
       <html>
@@ -72,7 +72,7 @@ export const emailTemplates = {
             </div>
             <div class="content">
               <p>Dear ${data.passengerName},</p>
-              <p>Your ride with Moms-2-Go has been confirmed. Our certified drivers will ensure your safe and comfortable journey.</p>
+              <p>Your ride with Moms-2GO has been confirmed. Our certified drivers will ensure your safe and comfortable journey.</p>
               
               <div class="ride-details">
                 <h3>Ride Details</h3>
@@ -86,21 +86,21 @@ export const emailTemplates = {
               
               <p><strong>Emergency Contact:</strong> (555) 911-MOMS</p>
               
-              <p>Thank you for choosing Moms-2-Go for your safe transportation needs.</p>
+              <p>Thank you for choosing Moms-2GO for your safe transportation needs.</p>
             </div>
             <div class="footer">
-              <p>Moms-2-Go - Safe rides for life's precious moments</p>
+              <p>Moms-2GO - Safe rides for life's precious moments</p>
               <p>Available 24/7 for your peace of mind</p>
             </div>
           </div>
         </body>
       </html>
     `,
-    text: `Ride Confirmed - Moms-2-Go\n\nDear ${data.passengerName},\n\nYour ride has been confirmed:\nFrom: ${data.pickupAddress}\nTo: ${data.destinationAddress}\nTime: ${new Date(data.scheduledTime).toLocaleString()}\nFare: $${data.fareAmount}\n\nEmergency: (555) 911-MOMS\n\nThank you for choosing Moms-2-Go!`
+    text: `Ride Confirmed - Moms-2GO\n\nDear ${data.passengerName},\n\nYour ride has been confirmed:\nFrom: ${data.pickupAddress}\nTo: ${data.destinationAddress}\nTime: ${new Date(data.scheduledTime).toLocaleString()}\nFare: $${data.fareAmount}\n\nEmergency: (555) 911-MOMS\n\nThank you for choosing Moms-2GO!`
   }),
 
   rideAccepted: (data: { passengerName: string; driverName: string; vehicleInfo: string; eta: string }) => ({
-    subject: 'Driver On The Way - Moms-2-Go',
+    subject: 'Driver On The Way - Moms-2GO',
     html: `
       <!DOCTYPE html>
       <html>
@@ -140,7 +140,7 @@ export const emailTemplates = {
               <p><strong>Emergency:</strong> (555) 911-MOMS</p>
             </div>
             <div class="footer">
-              <p>Moms-2-Go - Safe rides for life's precious moments</p>
+              <p>Moms-2GO - Safe rides for life's precious moments</p>
             </div>
           </div>
         </body>
@@ -150,7 +150,7 @@ export const emailTemplates = {
   }),
 
   driverApplication: (data: { driverName: string; email: string }) => ({
-    subject: 'Driver Application Received - Moms-2-Go',
+    subject: 'Driver Application Received - Moms-2GO',
     html: `
       <!DOCTYPE html>
       <html>
@@ -170,11 +170,11 @@ export const emailTemplates = {
           <div class="container">
             <div class="header">
               <h1>Application Received!</h1>
-              <p>Thank you for applying to be a Moms-2-Go driver</p>
+              <p>Thank you for applying to be a Moms-2GO driver</p>
             </div>
             <div class="content">
               <p>Dear ${data.driverName},</p>
-              <p>Thank you for your interest in joining the Moms-2-Go family as a certified driver.</p>
+              <p>Thank you for your interest in joining the Moms-2GO family as a certified driver.</p>
               
               <div class="info-box">
                 <h3>Next Steps</h3>
@@ -191,14 +191,14 @@ export const emailTemplates = {
               <p>We look forward to welcoming you to our team of dedicated professionals!</p>
             </div>
             <div class="footer">
-              <p>Moms-2-Go Driver Support</p>
+              <p>Moms-2GO Driver Support</p>
               <p>Building trust through safe, reliable service</p>
             </div>
           </div>
         </body>
       </html>
     `,
-    text: `Driver Application Received!\n\nDear ${data.driverName},\n\nThank you for applying to be a Moms-2-Go driver. Your application is being reviewed.\n\nNext steps:\n1. Background check\n2. Vehicle inspection\n3. Training completion\n4. Final approval\n\nTimeline: 3-5 business days\n\nQuestions? Contact drivers@moms2go.com or (555) 123-MOMS`
+    text: `Driver Application Received!\n\nDear ${data.driverName},\n\nThank you for applying to be a Moms-2GO driver. Your application is being reviewed.\n\nNext steps:\n1. Background check\n2. Vehicle inspection\n3. Training completion\n4. Final approval\n\nTimeline: 3-5 business days\n\nQuestions? Contact drivers@moms2go.com or (555) 123-MOMS`
   })
 }
 

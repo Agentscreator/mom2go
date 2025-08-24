@@ -37,38 +37,38 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
+    <div className="min-h-screen bg-white">
+      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-purple-200/30 shadow-lg">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20 lg:h-24">
             <div className="flex items-center gap-4">
               <Image
-                src="/images/moms-2-go-logo.png"
-                alt="Moms-2-Go"
-                width={64}
-                height={64}
-                className="rounded-2xl shadow-lg"
+                src="/images/moms-2-go-branded-car.png"
+                alt="Moms-2GO"
+                width={96}
+                height={96}
+                className="rounded-3xl shadow-xl opacity-90 ring-2 ring-purple-200"
               />
-              <span className="font-serif font-bold text-xl sm:text-2xl lg:text-3xl text-primary tracking-tight">MOMS-2-GO</span>
+              <span className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-purple-900 tracking-tight">MOMS-2GO</span>
             </div>
 
             <div className="hidden md:flex items-center gap-8">
               <nav className="flex items-center gap-8">
-                <a href="#services" className="text-muted-foreground hover:text-primary transition-colors font-medium">
+                <a href="#services" className="text-purple-700 hover:text-purple-900 transition-colors font-medium">
                   Services
                 </a>
-                <a href="#about" className="text-muted-foreground hover:text-primary transition-colors font-medium">
+                <a href="#about" className="text-purple-700 hover:text-purple-900 transition-colors font-medium">
                   About
                 </a>
                 <a
                   href="#testimonials"
-                  className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                  className="text-purple-700 hover:text-purple-900 transition-colors font-medium"
                 >
                   Reviews
                 </a>
               </nav>
               <Link href="/auth/signin">
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl px-8 py-3 text-base font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                <Button className="bg-purple-900 hover:bg-purple-800 text-white rounded-full px-8 py-3 text-base font-semibold transition-all duration-300 hover:scale-105 shadow-lg">
                   Access Dashboard
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -83,23 +83,23 @@ export default function HomePage() {
           </div>
 
           {mobileMenuOpen && (
-            <div className="md:hidden py-4 border-t border-border/50 animate-fade-in space-y-3 bg-background/95 backdrop-blur-sm">
+            <div className="md:hidden py-4 border-t border-purple-200/30 animate-fade-in space-y-3 bg-white/95 backdrop-blur-sm">
               <nav className="flex flex-col gap-4">
-                <a href="#services" className="text-muted-foreground hover:text-primary transition-colors font-medium">
+                <a href="#services" className="text-purple-700 hover:text-purple-900 transition-colors font-medium">
                   Services
                 </a>
-                <a href="#about" className="text-muted-foreground hover:text-primary transition-colors font-medium">
+                <a href="#about" className="text-purple-700 hover:text-purple-900 transition-colors font-medium">
                   About
                 </a>
                 <a
                   href="#testimonials"
-                  className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                  className="text-purple-700 hover:text-purple-900 transition-colors font-medium"
                 >
                   Reviews
                 </a>
               </nav>
               <Link href="/auth/signin">
-                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl px-8 py-3 text-base font-medium">
+                <Button className="w-full bg-purple-900 hover:bg-purple-800 text-white rounded-full px-8 py-3 text-base font-semibold">
                   Access Dashboard
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -109,84 +109,86 @@ export default function HomePage() {
         </div>
       </nav>
 
-      <section className="relative py-16 sm:py-24 lg:py-32 xl:py-48 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center space-y-8 sm:space-y-10 lg:space-y-12 animate-fade-in">
-            <div className="space-y-6 sm:space-y-8">
-              <Badge className="bg-primary/10 text-primary border-primary/20 rounded-full px-4 sm:px-6 lg:px-8 py-2 sm:py-3 text-sm sm:text-base font-medium shadow-lg">
-                ✨ Trusted by 10,000+ Mothers Nationwide
-              </Badge>
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Mobile background */}
+        <div className="absolute inset-0 md:hidden">
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/images/hero-background-mobile.png')"
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/70 via-purple-800/60 to-purple-700/50"></div>
+        </div>
+        
+        {/* Desktop background */}
+        <div className="absolute inset-0 hidden md:block">
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/images/hero-background-desktop.png')"
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-900/80 via-purple-800/60 to-purple-700/40"></div>
+        </div>
+        {/* Content Container */}
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative w-full">
+          <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[85vh]">
+            {/* Left Column - Text Content */}
+            <div className="space-y-10 text-center lg:text-left">
+                <div className="space-y-6">
+                  <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[0.9] tracking-tight text-white drop-shadow-lg">
+                    <span className="block font-light mb-1">Safe Rides for</span>
+                    <span className="block font-bold bg-gradient-to-r from-purple-200 to-pink-200 bg-clip-text text-transparent">
+                      Expecting Mothers
+                    </span>
+                  </h1>
 
-              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl leading-[0.9] text-foreground tracking-tight">
-                Safe Rides for
-                <br />
-                <span className="text-primary bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                  Expecting Mothers
-                </span>
-              </h1>
+                  <p className="text-lg lg:text-xl text-white/90 leading-relaxed font-light max-w-xl drop-shadow-md">
+                    Professional transportation with CPR-certified drivers designed for your precious journey.
+                  </p>
+                </div>
 
-              <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-muted-foreground leading-relaxed max-w-4xl mx-auto font-light px-4 sm:px-0">
-                Professional transportation with CPR-certified drivers, spacious vehicles, and emergency-ready
-                technology designed specifically for your precious journey to motherhood.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4 sm:px-0">
-              <Link href="/auth/signup" className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl w-full"
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                <Link href="/auth/signup" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    className="bg-white text-purple-900 hover:bg-purple-50 rounded-full px-10 py-4 text-lg font-bold tracking-wide transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl w-full sm:w-auto"
                 >
                   Book Your Ride Now
                   <ArrowRight className="w-5 h-5 ml-3" />
                 </Button>
               </Link>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-2xl px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-semibold border-2 hover:scale-105 transition-all duration-300 bg-transparent w-full sm:w-auto"
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-10 py-4 text-lg font-semibold tracking-wide border-2 border-white/40 text-white hover:bg-white/10 hover:border-white/60 hover:scale-105 transition-all duration-300 bg-transparent w-full sm:w-auto backdrop-blur-sm"
               >
                 Learn More
-              </Button>
+                </Button>
+              </div>
+
+              {/* Stats */}
+              <div className="flex items-center gap-8 text-center flex-wrap justify-center lg:justify-start">
+                <div>
+                  <p className="text-2xl font-bold text-white drop-shadow-sm">24/7</p>
+                  <p className="text-sm text-white/80 font-medium">Available</p>
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-white drop-shadow-sm">156</p>
+                  <p className="text-sm text-white/80 font-medium">Certified Drivers</p>
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-white drop-shadow-sm">100%</p>
+                  <p className="text-sm text-white/80 font-medium">Safety Record</p>
+                </div>
+              </div>
             </div>
-
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 pt-12 sm:pt-16">
-              <div className="flex items-center gap-4">
-                <div className="flex -space-x-3">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <div
-                      key={i}
-                      className="w-14 h-14 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 border-4 border-background flex items-center justify-center shadow-lg"
-                    >
-                      <Heart className="w-6 h-6 text-primary" />
-                    </div>
-                  ))}
-                </div>
-                <div className="text-left ml-4">
-                  <div className="flex items-center gap-1 mb-1">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-base text-muted-foreground font-medium">4.9/5 from 2,847 rides</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 sm:gap-6 lg:gap-8 text-center flex-wrap justify-center">
-                <div>
-                  <p className="text-2xl font-bold text-primary">24/7</p>
-                  <p className="text-sm text-muted-foreground">Available</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-primary">156</p>
-                  <p className="text-sm text-muted-foreground">Certified Drivers</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-primary">100%</p>
-                  <p className="text-sm text-muted-foreground">Safety Record</p>
-                </div>
-              </div>
+            
+            {/* Right Column - Visual Space for Background */}
+            <div className="hidden lg:block">
+              {/* This space allows the background image to show through */}
             </div>
           </div>
         </div>
@@ -278,7 +280,7 @@ export default function HomePage() {
             <div className="space-y-8 animate-slide-up">
               <div>
                 <Badge className="bg-primary/10 text-primary border-primary/20 rounded-full px-6 py-2 text-sm font-medium mb-6">
-                  About Moms-2-Go
+                  About Moms-2GO
                 </Badge>
                 <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-foreground tracking-tight mb-6">
                   More Than Transportation
@@ -321,11 +323,11 @@ export default function HomePage() {
               <div className="aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl flex items-center justify-center">
                 <div className="text-center space-y-4">
                   <Image
-                    src="/images/moms-2-go-logo.png"
-                    alt="Moms-2-Go"
+                    src="/images/moms-2-go-branded-car.png"
+                    alt="Moms-2GO"
                     width={120}
                     height={120}
-                    className="rounded-3xl mx-auto shadow-2xl"
+                    className="rounded-3xl mx-auto shadow-2xl opacity-90"
                   />
                   <p className="text-lg font-medium text-muted-foreground">Trusted by families nationwide</p>
                 </div>
@@ -352,22 +354,19 @@ export default function HomePage() {
                 name: "Sarah Johnson",
                 role: "First-time Mom",
                 content:
-                  "When my water broke at 2 AM, Moms-2-Go was there in 4 minutes. The driver was calm, professional, and got us to the hospital safely. I can't thank them enough!",
-                rating: 5,
+                  "When my water broke at 2 AM, Moms-2GO was there in 4 minutes. The driver was calm, professional, and got us to the hospital safely. I can't thank them enough!",
               },
               {
                 name: "Maria Rodriguez",
                 role: "Mother of Two",
                 content:
                   "The peace of mind knowing I have reliable transportation for all my prenatal appointments is invaluable. The drivers are so understanding and accommodating.",
-                rating: 5,
               },
               {
                 name: "Jennifer Chen",
                 role: "Working Mom",
                 content:
-                  "As a busy professional, having Moms-2-Go handle my transportation needs during pregnancy was a game-changer. Reliable, safe, and always on time.",
-                rating: 5,
+                  "As a busy professional, having Moms-2GO handle my transportation needs during pregnancy was a game-changer. Reliable, safe, and always on time.",
               },
             ].map((testimonial, index) => (
               <Card
@@ -376,11 +375,6 @@ export default function HomePage() {
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <CardContent className="p-8">
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                    ))}
-                  </div>
                   <p className="text-muted-foreground leading-relaxed mb-6 italic">"{testimonial.content}"</p>
                   <div>
                     <p className="font-semibold text-foreground">{testimonial.name}</p>
@@ -449,8 +443,8 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-10 lg:mb-12">
             <div className="sm:col-span-2 md:col-span-2">
               <div className="flex items-center gap-4 mb-6">
-                <Image src="/images/moms-2-go-logo.png" alt="Moms-2-Go" width={48} height={48} className="rounded-xl" />
-                <span className="font-serif font-bold text-2xl text-background tracking-tight">MOMS-2-GO</span>
+                <Image src="/images/moms-2-go-branded-car.png" alt="Moms-2GO" width={48} height={48} className="rounded-xl opacity-85" />
+                <span className="font-serif font-medium text-2xl text-background tracking-tight">MOMS-2GO</span>
               </div>
               <p className="text-background/70 leading-relaxed mb-6 max-w-md">
                 Providing safe, reliable, and compassionate transportation for expecting and new mothers across the
@@ -490,7 +484,7 @@ export default function HomePage() {
           <div className="border-t border-background/20 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-background/70 text-center font-light">
-                © 2024 Moms-2-Go. Safe rides for life's precious moments.
+                © 2024 Moms-2GO. Safe rides for life's precious moments.
               </p>
               <div className="flex items-center gap-6 text-background/70 text-sm">
                 <a href="#" className="hover:text-background transition-colors">
