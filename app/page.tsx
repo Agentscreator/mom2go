@@ -43,7 +43,7 @@ export default function HomePage() {
           <div className="flex justify-between items-center h-16 sm:h-20 lg:h-24">
             <div className="flex items-center gap-4">
               <Image
-                src="/images/moms-2-go-new.jpg"
+                src="/images/moms-2-go-branded-car.png"
                 alt="Moms-2GO"
                 width={96}
                 height={96}
@@ -323,7 +323,7 @@ export default function HomePage() {
               <div className="aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl flex items-center justify-center">
                 <div className="text-center space-y-4">
                   <Image
-                    src="/images/moms-2-go-new.jpg"
+                    src="/images/moms-2-go-branded-car.png"
                     alt="Moms-2GO"
                     width={120}
                     height={120}
@@ -443,7 +443,7 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-10 lg:mb-12">
             <div className="sm:col-span-2 md:col-span-2">
               <div className="flex items-center gap-4 mb-6">
-                <Image src="/images/moms-2-go-new.jpg" alt="Moms-2GO" width={48} height={48} className="rounded-xl opacity-85" />
+                <Image src="/images/moms-2-go-branded-car.png" alt="Moms-2GO" width={48} height={48} className="rounded-xl opacity-85" />
                 <span className="font-serif font-medium text-2xl text-background tracking-tight">MOMS-2GO</span>
               </div>
               <p className="text-background/70 leading-relaxed mb-6 max-w-md">
